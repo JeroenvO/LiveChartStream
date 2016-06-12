@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+  <!--
+  Jeroen van Oorschot BEP 2016
+  Used for drawing graphs on graph.pontus.ele.tue.nl
+  uses server side rabbitMQ-to-autobahn application to get data-->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>TU/e ECO WSN testbed demo Graphstreamer</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<style type="text/css">
+.label{
+	margin-left:2px;
+	margin-right:4px;
+}
+h2{
+	margin-right: 5px;
+}
+canvas{
+	margin: 2px;
+}
+</style>
+</head>
+
+<body>
+  <div class="container">
+<span class="page-header"><h2 style="display:inline">Graph</h2>
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#addGraphForm">Show/hide add graph pane</button></span>
+
+  <div id="addGraphForm" class="collapse">
+    <h3>Add graph</h3>
+  <form action="">
+  <table class="table">
+    <tr>
+    	<td>Name</td><td><input type="text" id="fieldGraphName" required maxlength="20"/></td>
+    </tr>
+    <tr>
+
+    </tr></table>
+    <h4>Timeseries</h4>
+    <table id="valueFieldBox" class="table"></table>
+
+
+<button type="button" class="btn btn-default" aria-label="Left Align" onClick="addLineInput()">
+  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add time series (line)
+</button><br />
+<button type="button" class="btn btn-default" aria-label="Left Align" onClick="addGraph()">
+  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add graph
+</button>
+  </form>
+  </div>
+  <div id="graphBox">
+  </div><br />
+<span class="page-header"><h2 style="display:inline">Received messages of T and R type:</h2>BBB-ID:Mote-ID:Type@timestamp key-value-object</span>
+<div style="border:1px solid black; height:1000px; overflow:scroll;" id="logBlock"></div>
+</div>
+    <script type="text/javascript" src="smoothie.js"></script>
+    <script type="text/javascript" src="plotter.js"></script>
+	<script type="text/javascript" src="parser.js"></script>
+    <script type="text/javascript" src="https://autobahn.s3.amazonaws.com/autobahnjs/latest/autobahn.js"></script>
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+</body>
+</html>
